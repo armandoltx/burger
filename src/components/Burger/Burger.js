@@ -9,7 +9,7 @@ const burger = (props) => {
       .map(igKey => {
           // to convert the string value into an array that contains as many elements as ingredients we have
           return [...Array(props.ingredients[igKey])].map((_, i) => {
-            return <BurgerIngredient key={igKey + 1} type={igKey} />;
+            return <BurgerIngredient key={igKey + i} type={igKey} />;
           });
           // use (_) because we want to get the index, we do not care about the element itself
       })
@@ -18,16 +18,14 @@ const burger = (props) => {
       }, []);
       console.log(transformedIngredients);
 
-  if(transformedIngredients.length === 0) {
-    transformedIngredients = <p>Please start adding ingredients!</p>
+  if (transformedIngredients.length === 0) {
+    transformedIngredients = <p>Please start adding ingredients!</p>;
   }
-
   return (
     <div className={classes.Burger}>
       <BurgerIngredient type="bread-top" />
       {transformedIngredients}
       <BurgerIngredient type="bread-bottom" />
-
     </div>
   );
 };
