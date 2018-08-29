@@ -8,9 +8,9 @@ const burger = (props) => {
   const transformedIngredients = Object.keys(props.ingredients)
       .map(igKey => {
           // to convert the string value into an array that contains as many elements as ingredients we have
-          return [...Array(props.ingredients[igKey])].map((_), i) => {
-            return <BurgerIngredient key={igKey + 1} type={igKey};
-          };
+          return [...Array(props.ingredients[igKey])].map((_, i) => {
+            return <BurgerIngredient key={igKey + 1} type={igKey} />;
+          });
           // use (_) because we want to get the index, we do not care about the element itself
       });
   return (
